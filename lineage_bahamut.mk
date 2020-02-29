@@ -12,14 +12,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/lineage_bahamut.mk \
-    $(LOCAL_DIR)/lineage_bahamut_DSDS.mk
+# Inherit device parts
+$(call inherit-product, device/sony/bahamut/aosp_j8210.mk)
 
-COMMON_LUNCH_CHOICES += \
-    lineage_bahamut-eng \
-    lineage_bahamut-userdebug \
-    lineage_bahamut-user \
-    lineage_bahamut_DSDS-eng \
-    lineage_bahamut_DSDS-userdebug \
-    lineage_bahamut_DSDS-user
+# Override Product Name
+PRODUCT_NAME := lineage_bahamut
+
+# Assert
+TARGET_OTA_ASSERT_DEVICE := bahamut
